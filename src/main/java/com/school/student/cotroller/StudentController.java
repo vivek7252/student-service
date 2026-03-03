@@ -17,6 +17,7 @@ public class StudentController {
 
 	@GetMapping("/message")
 	public String getMsg() {
+		System.out.println(message);
 		return message+" - "+value;
 	}
 
