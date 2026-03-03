@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: student-pod
+  labels:
+    app: student-app
+spec:
+  containers:
+    - name: student-container
+      image: mdeepak05/k8learn-repo:1.0.2   # Replace with your Docker image
+      ports:
+        - containerPort: 8080
+      env:
+        - name: app.message
+          value: "hello"
+        - name: app.value
+          value: "k8"

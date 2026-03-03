@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: student-pod-config
+  labels:
+    app: student-app
+spec:
+  containers:
+    - name: student-container
+      image: mdeepak05/k8learn-repo:1.0.2
+      ports:
+        - containerPort: 8080
+      env:
+        - name: app.message
+          valueFrom:
+            configMapKeyRef:
+              name: student-config
+              key: APP_MESSAGE
+        - name: app.value
+          valueFrom:
+            configMapKeyRef:
+              name: student-config
+              key: DB_HOST
